@@ -51,3 +51,21 @@ int main() {
 
 	return 0;
 }
+#include <iostream>
+#include <clocale>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	string l;
+	string sht;
+	string day;
+	cout << "Включена ли лампа да/нет"; cout<< endl; cin >> l;
+	cout << "День или ночь день/ночь"; cout<< endl; cin >> day;
+	cout << "Шторы открыты или нет открыты/закрыты"; cout<< endl; cin >> sht;
+
+	if ((l == "да") || (sht == "открыты")){
+	    cout << "лох";
+	}
+}
