@@ -117,4 +117,18 @@ int main()
 	    cout << "нет корней";
 	}
 }
+#include <iostream>
+#include <clocale>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int x;
+	cin >> x;
+	int y = x;
+	for (x; x < y+10; x++){
+	    cout << x << " ";
+	}
+}
 
