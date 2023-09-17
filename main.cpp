@@ -131,4 +131,21 @@ int main() {
 	    cout << x << " ";
 	}
 }
+#include <iostream>
+#include <clocale>
+#include <cmath>
+using namespace std;
 
+int main() {
+	setlocale(LC_ALL, "Russian");
+	double x=-4;
+	for (x; x <= 4; x+=0.5){
+	    cout << x << ";";
+	    if (x != 1){
+	        cout << ((pow(x, 2)-2*x+2)/(x-1)) << endl;
+	    }
+	    else{
+	        cout << "корней нет" << endl;
+	    }
+	}
+}
