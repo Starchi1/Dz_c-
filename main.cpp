@@ -74,3 +74,25 @@ int main() {
 	    cout << "темно";
 	}
 }
+----------------------------------------------------
+#include <iostream>
+#include <clocale>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	double x;
+	double a;
+	cin >> x;
+	cin >> a;
+	if (abs(x) < 1){
+	    cout << a*log(abs(x));
+	}
+	if ((abs(x) >= 1) && (a-pow(x,2))>=0){
+	    cout << pow(a-pow(x, 2), 0.5);
+	}
+	else{
+	    cout << "нет корней";
+	}
+}
