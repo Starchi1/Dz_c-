@@ -75,6 +75,8 @@ int main() {
 	}
 }
 ----------------------------------------------------
+2
+----------------------------------------------------
 #include <iostream>
 #include <clocale>
 #include <cmath>
@@ -96,3 +98,23 @@ int main() {
 	    cout << "нет корней";
 	}
 }
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double x;
+	double y;
+	double b;
+	cin >> x;
+	cin >> y;
+	cin >> b;
+	if ((b - y > 0) && ((b-x)>=0)){
+	    cout << log(b - y) * sqrt(b - x);
+	}
+	else{
+	    cout << "нет корней";
+	}
+}
+
