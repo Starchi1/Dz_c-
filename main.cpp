@@ -168,3 +168,31 @@ int main() {
 	double r = p/100.0;
 	cout << ((s*r*pow((1+r), n)) / (12*(pow((1+r), n)-1)));
 }
+#include <iostream>
+#include <clocale>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	double s;
+	double m;
+	double n;
+	double r;
+	double m1=0;
+	cin >> s;
+	cin >> m;
+	cin >> n;
+	for (int p = 1; m1 < m; p++)
+    {   
+        r = p / 100;
+        m1 = ((s * r * (pow((1 + r), n))) / (12 * (pow((1 + r), n)) - 1));
+        
+        if (m1 > m) {
+            cout << "Кредит давался под " << p << "%" << endl;
+        }
+        else {
+            cout << "не может быть более 100% " << endl;
+        }
+    }
+}
