@@ -213,3 +213,30 @@ int main () {
     cout << buff;
 
 }
+#include <iostream>
+#include <clocale>
+#include <fstream>
+#include <string>
+using namespace std;
+int main () {
+    setlocale(LC_ALL, "Russian");
+    string a = "0123456789";
+    string b = "";
+    char c;
+    ofstream fout("cppstudio.txt");
+    fout << "см25о5л9опы47567";
+    fout.close();
+    ifstream f("cppstudio.txt"); 
+    char buff[20];
+    f.getline(buff, 20);
+    f.close();
+    b = buff;
+    cout << b;
+    c = b[1];
+    cout << c;
+    int i = 0;
+    for(i; i <= int(b.length()); i++){
+        break;
+    }
+
+}
