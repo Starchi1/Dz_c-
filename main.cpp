@@ -196,3 +196,20 @@ int main() {
         }
     }
 }
+#include <iostream>
+#include <clocale>
+#include <fstream>
+
+using namespace std;
+int main () {
+    setlocale(LC_ALL, "Russian");
+    ofstream fout("cppstudio.txt");
+    fout << "Работа с файлами в С++";
+    fout.close();
+    ifstream f("cppstudio.txt"); 
+    char buff[100];
+    f.getline(buff, 100);
+    f.close();
+    cout << buff;
+
+}
