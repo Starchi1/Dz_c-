@@ -175,27 +175,28 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "Russian");
-	double s;
-	double m;
-	double n;
-	double r;
-	double m1=0;
-	cin >> s;
-	cin >> m;
-	cin >> n;
-	for (int p = 1; m1 < m; p++)
-    {   
-        r = p / 100;
-        m1 = ((s * r * (pow((1 + r), n))) / (12 * (pow((1 + r), n)) - 1));
-        
-        if (abs(m - m1 < 0.001)) {
-            cout << "Кредит давался под " << p/10 << "%" << endl;
-        }
-        else {
-            continue;
-        }
-    }
-}
+	double p1, s1, n1, m1, m;
+	float r1;
+	cout << "Сумма заёма = "; cin >> s1;
+	cout << "Месячная выплата = "; cin >> m1;
+	cout << "Сколько лет = "; cin >> n1;
+	if (s <= 0 || n <= 0 || p <= 0) {
+		cout << "Результат невозможен" << endl;
+	}
+	else {
+		for (p1 = 1; p1 < 100; p1++) {
+			r1 = float(p1 / 100);
+			m = (s1 * r1 * pow(1 + r1, n1)) / (12 * (pow(1 + r1, n1) - 1));
+			if (abs(m1 - m) < 0.01) {
+				cout << "Процент = " << p1 << endl;
+				break;
+			}
+			else {
+				continue;
+			}
+		}
+	}
+	cout << " " << endl;
 #include <iostream>
 #include <clocale>
 #include <fstream>
@@ -241,4 +242,20 @@ int main () {
     }
     cout << l;
 
+}
+string str = "asdadasdadbasvdahvdhas";
+	int Length = str.length();
+	for (int i = 0; i < Length; i++)
+	{
+		for (int j = i + 1; j < Length; j++)
+		{
+			if (str[i] > str[j])
+			{
+				char temporary = str[i];
+				str[i] = str[j];
+				str[j] = temporary;
+			}
+		}
+	}
+	cout << "Отсортированная строка: " << str << endl;
 }
