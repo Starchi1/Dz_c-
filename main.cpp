@@ -266,3 +266,34 @@ string str = "aafefhcvsaehfrefbheirufhwqiufgwiurfgwiurfgwlriuyfgwieurfs";
 	}
 	cout << "Отсортированная строка: " << str << endl;
 }
+------------------------------
+#include <iostream>
+#include <clocale>
+#include <fstream>
+#include <string>
+using namespace std;
+int main () {
+    setlocale(LC_ALL, "Russian");
+    string a = "0123456789";
+    string b = "";
+    string l = "";
+    int  in = 0;
+    int cou = 0;
+    int su = 0;
+    int ch = 0;
+    char c;
+    ofstream fout("cppstudio.txt");
+    for (int i = 0; i < 10; i++)
+    {
+        cin >> cou;
+        fout << cou << endl;
+    }
+    fout.close();
+    ifstream f("cppstudio.txt"); 
+    for(in; in < 10; in++){
+        f >> ch;
+        su+=ch;
+    }
+    f.close();
+    cout << su;  
+}
