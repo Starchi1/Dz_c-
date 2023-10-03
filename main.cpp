@@ -298,29 +298,7 @@ int main () {
     cout << su;  
 }
 #include <iostream>
-
-using namespace std;
-void znak(int n){
-    if (n > 0){
-        cout << 1;
-    }
-    if (n == 0){
-        cout << 1;
-    }
-    if (n < 0){
-        cout << 1;
-    }
-}
-int main()
-{
-    int a;
-    cin >> a;
-    znak(a);
-}
-
-
-#include <iostream>
-
+#include <cstring>
 using namespace std;
 double crug(double n){
     double s;
@@ -345,14 +323,22 @@ int main()
     double r;
     double A;
     double H;
+    string s;
+    cin>> s;
     cin>> a;
     cin>> b;
     cin>> r;
     cin>> A;
     cin>> H;
     if (a > 0 || b > 0 || r> 0 || A>0 || H>0){
+        if (s == "круг"){
         cout<<crug(r) << endl;
+        }
+        if (s == "прямоугольник"){
         cout<<primoug(a, b)<< endl;
+        }
+        if (s == "треугольник"){
         cout<<triug(A, H)<< endl;
+        }
     }
 }
