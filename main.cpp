@@ -317,3 +317,42 @@ int main()
     cin >> a;
     znak(a);
 }
+
+
+#include <iostream>
+
+using namespace std;
+double crug(double n){
+    double s;
+    s = 3.14*n*n;
+    return s;
+}
+double primoug(double a, double b){
+    double s;
+    s = a*b;
+    return s;
+}
+double triug(double A, double H){
+    double s;
+    s = 0.5*A*H;
+    return s;
+}
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    double a;
+    double b;
+    double r;
+    double A;
+    double H;
+    cin>> a;
+    cin>> b;
+    cin>> r;
+    cin>> A;
+    cin>> H;
+    if (a > 0 || b > 0 || r> 0 || A>0 || H>0){
+        cout<<crug(r) << endl;
+        cout<<primoug(a, b)<< endl;
+        cout<<triug(A, H)<< endl;
+    }
+}
