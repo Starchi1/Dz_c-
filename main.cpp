@@ -297,3 +297,23 @@ int main () {
     f.close();
     cout << su;  
 }
+#include <iostream>
+
+using namespace std;
+void znak(int n){
+    if (n > 0){
+        cout << 1;
+    }
+    if (n == 0){
+        cout << 1;
+    }
+    if (n < 0){
+        cout << 1;
+    }
+}
+int main()
+{
+    int a;
+    cin >> a;
+    znak(a);
+}
