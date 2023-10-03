@@ -302,6 +302,28 @@ int main () {
 #include <iostream>
 #include <cstring>
 using namespace std;
+void znak(int n){
+    if (n > 0){
+        cout << 1;
+    }
+    if (n == 0){
+        cout << 0;
+    }
+    
+    if (n < 0){
+        cout << -1;
+    }
+}
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int a;
+    cin >> a;
+    znak(a);
+}
+#include <iostream>
+#include <cstring>
+using namespace std;
 double crug(double n){
     double s;
     s = 3.14*n*n;
