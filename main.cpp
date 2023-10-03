@@ -266,7 +266,9 @@ string str = "aafefhcvsaehfrefbheirufhwqiufgwiurfgwiurfgwlriuyfgwieurfs";
 	}
 	cout << "Отсортированная строка: " << str << endl;
 }
-------------------------------
+----------------------------------
+	4
+----------------------------------
 #include <iostream>
 #include <clocale>
 #include <fstream>
@@ -339,6 +341,36 @@ int main()
         }
         if (s == "треугольник"){
         cout<<triug(A, H)<< endl;
+        }
+    }
+}
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    const int N = 23;
+    int i = 0;
+    int l = 0;
+    int k = 0;
+    string mass[N] = {"*","*","*","*","*","*","*","*","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"};
+    string mas[N] = {"_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_","_"};
+    for(k; k < 9; k++){
+        if (k <= 4){
+            for(i; i < N; i++){
+                cout << mass[i];
+            }
+            i = 0;
+            cout << endl;
+        }
+        if (k > 4){
+            for(l; l < N; l++){
+                cout << mas[l];
+            }
+            l = 0;
+            cout << endl;
         }
     }
 }
