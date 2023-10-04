@@ -322,48 +322,54 @@ int main()
     znak(a);
 }
 #include <iostream>
-#include <cstring>
 using namespace std;
-double crug(double n){
+double crug(){
+    setlocale(LC_ALL, "Russian");
+    double n;
     double s;
+    cout << "ВВедите R "; 
+    cin >> n;
     s = 3.14*n*n;
     return s;
 }
-double primoug(double a, double b){
+double primoug(){
+    setlocale(LC_ALL, "Russian");
     double s;
+    double a, b;
+    cin >> a;
+    cin >> b;
     s = a*b;
     return s;
 }
-double triug(double A, double H){
+double triug(){
+    setlocale(LC_ALL, "Russian");
     double s;
+    double A;
+    double H;
+    cin >> A;
+    cin >> H;
     s = 0.5*A*H;
     return s;
 }
 int main()
-{
+{   
     setlocale(LC_ALL, "Russian");
-    double a;
-    double b;
-    double r;
-    double A;
-    double H;
-    string s;
-    cin>> s;
-    cin>> a;
-    cin>> b;
-    cin>> r;
-    cin>> A;
-    cin>> H;
-    if (a > 0 || b > 0 || r> 0 || A>0 || H>0){
-        if (s == "круг"){
-        cout<<crug(r) << endl;
-        }
-        if (s == "прямоугольник"){
-        cout<<primoug(a, b)<< endl;
-        }
-        if (s == "треугольник"){
-        cout<<triug(A, H)<< endl;
-        }
+    int x;
+    std::cin >> x;
+    switch(x)
+    {
+        case 1: 
+            cout<< crug();
+            break;
+            
+        case 2: 
+            cout<< primoug();
+            break;
+        case 3: 
+            cout<< triug();
+            break;
+        default: 
+            std::cout << "x is undefined" << "\n";
     }
 }
 #include <iostream>
