@@ -402,3 +402,60 @@ int main()
         }
     }
 }
+#include <iostream>
+#include <string>
+using namespace std;
+int romech(char x){
+    switch(x){
+         case 'I': 
+            return 1;
+            break;
+        case 'V': 
+            return 5;
+            break;
+        case 'X': 
+            return 10;
+            break;
+        case 'L': 
+            return 50;
+            break;
+        case 'C': 
+            return 100;
+            break;
+        case 'D': 
+            return 500;
+            break;
+        case 'M': 
+            return 1000;
+            break;
+        default: 
+            return 0;
+    }
+}
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    string st;
+    bool f = true;
+    int a = 0;
+    cin >> st;
+    for (int i =0; i < st.length(); i++){
+        if (romech(st[i]) >= romech(st[i+1])){
+            a += romech(st[i]);
+        }
+        if ((romech(st[i]) < romech(st[i+1])) || (st[i] == 'I' || st[i+1] == 'X')){
+            a += 9;
+            break;
+        }
+        else{
+            f = false;
+            break;
+        }
+    }
+    if (f){
+    cout << a;
+    }
+    else{
+        cout << "Введите коректноек число";
+    }
+}
