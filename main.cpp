@@ -487,3 +487,28 @@ int main() {
     }
     gotoxy(0, 26);
 }
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int si;
+    cin >> si;
+    for (int S = 0; S <= 10; S++){
+        int m = 37;
+        int i = 3;
+        int c = 64;
+        cout<< (m*si+i)%c << endl;
+        si = (m*si+i)%c;
+    }
+    cout << "                    "<< endl;
+    for (int S = 0; S <= 10; S++){
+        int m = 25173;
+        int i = 13849;
+        int c = 65537;
+        cout<< (m*si+i)%c << endl;
+        si = (m*si+i)%c;
+        
+    }
+}
