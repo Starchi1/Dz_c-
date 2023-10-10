@@ -1,0 +1,289 @@
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <clocale>
+#include <cmath>
+#include <string>
+#include <ostream>
+#include <fstream>
+#include <algorithm>
+#include <windows.h>
+#include <map>
+#define WIDTH 70
+#define HEIGHT 20
+#define MAX_X 2*M_PI
+using namespace std;
+
+
+void number() {
+	double a;
+	cout << "Число = "; cin >> a;
+	if (a == 0) {
+		cout << "0" << endl;
+	}
+	else if (a > 0) {
+		cout << "Число положительное" << endl;
+	}
+	else {
+		cout << "Число отрицательное" << endl;
+	}
+	cout << " " << endl;
+}
+
+
+void rectangle() {
+	double a, b;
+	cout << "Введите длину = "; cin >> a;
+	cout << "Введите ширину = "; cin >> b;
+	cout << "Площадь прямоугольника = " << a * b;
+}
+void triangle() {
+	double a, h;
+	cout << "Введите высоту треугольник = "; cin >> h;
+	cout << "Введите сторону треугольника на которую опущена высота = "; cin >> a;
+	cout << "Площадь треугольника = " << 0.5 * a * h;
+}
+void circle() {
+	double r;
+	cout << "Введите радиус круга = "; cin >> r;
+	cout << "Площадь круга == " << M_PI * pow(r, 2);
+}
+
+
+int rome(char x) {
+	switch (x) {
+	case 'I':
+		return 1;
+	case 'V':
+		return 5;
+	case 'X':
+		return 10;
+	case 'L':
+		return 50;
+	case 'C':
+		return 100;
+	case 'D':
+		return 500;
+	case 'M':
+		return 1000;
+	}
+}
+char digit(int num) {
+	switch (num) {
+	case 0: 
+		return '0';
+	case 1: 
+		return '1';
+	case 2: 
+		return '2';
+	case 3: 
+		return '3';
+	case 4: 
+		return '4';
+	case 5: 
+		return '5';
+	case 6: 
+		return '6';
+	case 7: 
+		return '7';
+	case 8: 
+		return '8';
+	case 9: 
+		return '9';
+	case 10: 
+		return 'A';
+	case 11: 
+		return 'B';
+	case 12:
+		return 'C';
+	case 13: 
+		return 'D';
+	case 14: 
+		return 'E';
+	case 15: 
+		return 'F';
+	default:
+		break;
+	}
+}
+
+int dectox_int(int y, int p, char* s)
+{
+	int num = (int)y;
+	int rest = num % p;
+	num /= p;
+	if (num == 0){
+		s[0] = digit(rest); 
+		return 1;
+	}
+	int k = dectox_int(num, p, s);
+	s[k++] = digit(rest);
+	return k;
+}
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+
+
+	cout << "Задание Файл" << endl;
+	int tab[10];
+	int summa = {};
+	ofstream fout("zadanie1.txt");
+	for (int i = 0; i < 10; i++) {
+		cout << "Введите число = "; cin >> tab[i];
+		fout << tab[i];
+	}
+	fout.close();
+	ifstream fin("zadanie1.txt");
+	fin.close();
+	for (int j = 0; j < size(tab); j++) {
+		summa += tab[j];
+	}
+	cout << summa << endl;
+	cout << " " << endl;
+
+
+	cout << "Задание Знак числа" << endl;
+	number();
+	cout << " " << endl;
+
+
+	cout << "Задание Геометрические фигуры" << endl;
+	int str;
+	cout << "Выбирете для какой фигуры вам нунжно узнать площадь: прямоугольник - 1, треугольник - 2, круг - 3 = "; cin >> str;
+	switch (str) {
+	case 1:
+		rectangle();
+		cout << " " << endl;
+		break;
+	case 2:
+		triangle();
+		cout << " " << endl;
+		break;
+	case 3:
+		circle();
+		cout << " " << endl;
+		break;
+	default:
+		cout << "Введите правильное число" << endl;
+	}
+	cout << " " << endl;
+
+
+	cout << "Задание Былая слава" << endl;
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 8; j++) {
+			cout << "*";
+		}
+		for (int g = 0; g < 20; g++) {
+			cout << "_";
+		}
+		cout << endl;
+	}
+	for (int a = 0; a < 7; a++) {
+		for (int g = 0; g < 28; g++) {
+			cout << "_";
+		}
+		cout << endl;
+	}
+	cout << " " << endl;
+
+	cout << "Задание Синусоида" << endl;
+	for (double y = 1; y >= -1; y -= 0.1) {
+		for (double x = 0; x <= MAX_X; x += MAX_X / WIDTH) {
+			double sinus = sin(x);
+			if (sinus >= y && sinus < y + 0.1) {
+				cout << "*";
+			}
+			else if (y > 0 && y < 0.1) {
+				cout << '-';
+			}
+			else if (x > MAX_X / 2 - 0.1 && x < MAX_X / 2 + 0.1) {
+				cout << "|";
+			}
+			else {
+				cout << " ";
+			}
+		}
+		cout << endl;
+	}
+	cout << " " << endl;
+
+	cout << "Задание Автоматный распознаватель" << endl;
+	string string;
+	cin >> string;
+	int x = 0, c1 = 0;
+	for (int i = string.length() - 1; i >= 0; i--) {
+		int c = rome(string[i]);
+		if (c >= c1) {
+			c1 = c;
+		}
+		if (c == c1) {
+			x += c;
+		}
+		else {
+			x -= c;
+		}
+	}
+	if ((string.find("llll") != string::npos) || (string.find("VX") != string::npos) ) {
+		cout << "Такого числа не существует" << endl;
+	}
+	else {
+		cout << x << endl;
+	}
+	cout << " " << endl;
+
+
+	cout << "Задача Генератор случайных чисел" << endl;
+	int si, m, i, o;
+	cout << "Введите начальное значение, от которого будет отталкиваться генератор = "; 
+	cin >> si;
+	for (int b = 0; b < 10; b++) {
+		m = 37;
+		i = 3;
+		o = 64;
+		cout << "Случайное число = " << ((m * si + i) % o) << endl;
+		si = (m * si + i) % o;
+	}
+	cout << "Введите начальное значение, от которого будет отталкиваться генератор = "; 
+	cin >> si;
+	for (int b = 0; b < 10; b++) {
+		m = 25173;
+		i = 13849;
+		o = 65537;
+		cout << "Случайное число = " << ((m * si + i) % o) << endl;
+		si = ((m * si + i) % o);
+	}
+	cout << " " << endl;
+
+
+	cout << "Задача Умножение матриц" << endl;
+	double a[3][4] = { {5, 2, 0, 10}, {3, 5, 2, 5}, {20, 0, 0, 0} };
+	double b[4][2] = { {1.2, 0.5}, {2.8, 0.4}, {5.0, 1.0}, {2.0, 1.5} };
+	double c[3][2] = { {0, 0}, {0, 0}, {0, 0} };
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 2; j++) {
+			for (int k = 0; k < 4; k++) {
+				c[i][j] += a[i][k] * b[k][j];
+			}
+			cout << c[i][j] << endl;
+		}
+	}
+	cout << "Ответ на вопрос №1: Продавец 2 выручил больше всего денег" << endl;
+	cout << "Ответ на вопрос №2: Продавец 1 полчил наибольшие комиссионные" << endl;
+	cout << "Ответ на вопрос №3: " << c[0][0] + c[1][0] + c[2][0] << endl;
+	cout << "Ответ на вопрос №4: " << c[0][1] + c[1][1] + c[2][1] << endl;
+	cout << "Ответ на вопрос №5: " << c[0][0] + c[1][0] + c[2][0] + c[0][1] + c[1][1] + c[2][1] << endl;
+	cout << "" << endl;
+
+
+	cout << "Задания Системы счисления" << endl;
+	double y;
+	char s[80] = { 0 };
+	int p;
+	cout << "Введите число: "; cin >> y;
+	cout << "Введите основание системы счисления: "; cin >> p;
+	int k = dectox_int((int)y, p, s);
+	cout << s;
+
+}
