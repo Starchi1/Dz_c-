@@ -250,7 +250,7 @@ int main () {
 #include <string>
 using namespace std;
 int main() {
-string str = "aafefhcvsaehfrefbheirufhwqiufgwiurfgwiurfgwlriuyfgwieurfs";
+	string str = "aafefhcvsaehfrefbheirufhwqiufgwiurfgwiurfgwlriuyfgwieurfs";
 	int Length = str.length();
 	for (int i = 0; i < Length; i++)
 	{
