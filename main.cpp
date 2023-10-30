@@ -586,3 +586,85 @@ int main()
     }
     
 }
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    cout << "№21" << endl;
+    int mas[]={0, 0, 0, 0, 0, 0};
+    int cnt_a = 0, cnt_e = 0, cnt_i = 0, cnt_o = 0, cnt_u = 0, cnt_y = 0;
+    char aword = 'a', aaword = 'A';
+    char eword = 'e', eeword = 'E';
+    char oword = 'o', ooword = 'O';
+    char uword = 'u', uuword = 'U';
+    char iword = 'i', iiword = 'I';
+    char yword = 'y', yyword = 'y';
+    char minword = ' ';
+    ofstream fout("zadacha.txt");
+    fout << "oaaaaaAAAoooOOOUUUUuuuuplqqjhpqnhdphwpdoqbwLLLLEEEEEEEEEeeeeeeeddeeeeee";
+    fout.close();
+    ifstream in("zadacha.txt");
+    string line;
+    getline(in, line);
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == aword || line[i] == aaword) {
+            ++cnt_a;
+        }
+    }
+    mas[0] = cnt_a;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == eword || line[i] == eeword) {
+            ++cnt_e;
+        }
+    }
+    mas[1] = cnt_e;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == oword || line[i] == ooword) {
+            ++cnt_o;
+        }
+    }
+    mas[2] = cnt_o;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == uword || line[i] == uuword) {
+            ++cnt_u;
+        }
+    }
+    mas[3] = cnt_u;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == iword || line[i] == iiword) {
+            ++cnt_i;
+        }
+    }
+    mas[4] = cnt_i;
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] == yword || line[i] == yyword) {
+            ++cnt_y;
+        }
+    }
+    mas[5] = cnt_y;
+    int *max = std::max_element(std::begin(mas), std::end(mas));
+    cout << "MAX количество гласных букв = " << *max << endl;
+    if (*max == cnt_a) {
+        cout << "Буква " << "a" << endl;
+    }
+    else if (*max == cnt_e) {
+        cout << "Буква " << "e" << endl;
+    }
+    else if (*max == cnt_o) {
+        cout << "Буква " << "o" << endl;
+    }
+    else if (*max == cnt_u) {
+        cout << "Буква " << "u" << endl;
+    }
+    else if (*max == cnt_i) {
+        cout << "Буква " << "i" << endl;
+    }
+    else if (*max == cnt_y) {
+        cout << "Буква " << "y" << endl;
+    }
+    in.close();
+    cout << " " << endl;
+}
