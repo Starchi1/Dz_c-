@@ -668,3 +668,52 @@ int main()
     in.close();
     cout << " " << endl;
 }
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+using namespace std;
+int count_underscores(string s) {
+  int count = 0;
+
+  for (int i = 0; i < s.size(); i++)
+    if (s[i] == ' ') count++;
+
+  return count;
+}
+int main()
+{
+    cout << "№21" << endl;
+    int nu = 0;
+    
+    ofstream fout("zadacha.txt");
+    fout << "oaaaaa AAAoooOOOUUU Uuuuuplqqjhpqnhd phw pdoqbwLLLLEEEEEEEEEeeeeeeeddeeeeee";
+    fout.close();
+    ifstream in("zadacha.txt");
+    string line;
+    getline(in, line);
+    size_t n = count_underscores(line)+1;
+    int *dinamich_array = new int [n];
+    int k = 0;
+    for (int i = 0; i <= line.length(); i++) {
+        if (line[i] != ' ' && i != line.length()){
+            nu ++;
+        }
+        else{
+            dinamich_array[k] = nu;
+            k++;
+
+            nu = 0;
+        }
+
+    }
+    int ma = -6666;
+    for (int l = 0; l < count_underscores(line)+1; l++) {
+        if (ma < dinamich_array[l]){
+            ma = dinamich_array[l];
+        }
+        
+    }
+    cout << ma;
+    in.close();
+    delete [] dinamich_array;
+}
