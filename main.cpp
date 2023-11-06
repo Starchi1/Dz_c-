@@ -717,3 +717,57 @@ int main()
     in.close();
     delete [] dinamich_array;
 }
+-------------------
+Шарики
+--------------------
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <clocale>
+#include <cmath>
+#include <string>
+#include <ostream>
+#include <fstream>
+#include <algorithm>
+#include <windows.h>
+#include <map>
+#include <sstream>
+#include <stdio.h>
+#include <conio.h>
+using namespace std;
+
+int fact(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * fact(n - 1);
+}
+
+bool perestanovka(int* urna, int n)
+{
+    for (int i = 0; i < n; ++i)
+    {
+        if (urna[i] == i)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+    int cnt = 0, n;
+    cout << "Введите количество шариков = "; cin >> n;
+    int fac = fact(n);
+    int* urna = new int[n];
+    for (int k = 0; k < n; k++) {
+        urna[k] = k;
+    }
+    for (int i = 0; i < fac; i++){
+        next_permutation(urna, urna + n);
+        if (perestanovka(urna, n))
+            cnt++;
+    }
+    cout << cnt << endl;
+    delete[] urna;
+}
