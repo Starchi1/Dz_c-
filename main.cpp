@@ -745,6 +745,47 @@ int main()
     in.close();
     delete [] dinamich_array;
 }
+#include <iostream>
+#include <cmath>
+using namespace std;
+int perevodv10(int n) {
+    int num10 = 0, i = 0, cnt;
+    while (n != 0) {
+        cnt = n % 10;
+        n /= 10;
+        num10 += cnt * pow(2, i);
+        ++i;
+    }
+    return num10;
+}
+int perevodv3(int num){
+    int bin = 0, k = 1;
+    while (num){
+        bin += (num % 3) * k;
+        k *= 10;
+        num /= 3;
+    }
+    return bin;
+}
+int main()
+{
+
+    cout << "№4-21" << endl;
+    int nu;
+    cin >> nu;
+    int ch;
+    size_t n = nu;
+    int *dinamich_array = new int [n];
+    for (int i = 0; i < n; i++) {
+        cin >> ch;
+        dinamich_array[i] = ch;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << perevodv3(perevodv10(dinamich_array[i]));
+    }
+    delete [] dinamich_array;
+
+}
 -------------------
 Шарики
 --------------------
@@ -799,44 +840,4 @@ int main() {
     cout << cnt << endl;
     delete[] urna;
 }
-#include <iostream>
-#include <cmath>
-using namespace std;
-int perevodv10(int n) {
-    int num10 = 0, i = 0, cnt;
-    while (n != 0) {
-        cnt = n % 10;
-        n /= 10;
-        num10 += cnt * pow(2, i);
-        ++i;
-    }
-    return num10;
-}
-int perevodv3(int num){
-    int bin = 0, k = 1;
-    while (num){
-        bin += (num % 3) * k;
-        k *= 10;
-        num /= 3;
-    }
-    return bin;
-}
-int main()
-{
 
-    cout << "№4-21" << endl;
-    int nu;
-    cin >> nu;
-    int ch;
-    size_t n = nu;
-    int *dinamich_array = new int [n];
-    for (int i = 0; i < n; i++) {
-        cin >> ch;
-        dinamich_array[i] = ch;
-    }
-    for (int i = 0; i < n; i++) {
-        cout << perevodv3(perevodv10(dinamich_array[i]));
-    }
-    delete [] dinamich_array;
-
-}
