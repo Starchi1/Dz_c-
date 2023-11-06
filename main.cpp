@@ -853,6 +853,48 @@ int main()
     delete [] dinamich_array;
 
 }
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+using namespace std;
+int findGCDmin(int a, int b) {
+    int min = 66666;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+        if (min > a){
+            min = a;
+        }
+    }
+    return min;
+}
+int findGCDmax(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+int main()
+{   cout << "№5-6" << endl;
+    ofstream fout("zadacha.txt");
+    for(int i; i < 11; i++){
+        fout << i;
+    }
+    fout.close();
+    ifstream in("zadacha.txt");
+    string line;
+    getline(in, line);
+    for (int i = 1; i < line.length(); i++) {
+        cout << findGCDmin(line[i+2], line[i+5]);
+        break;
+    }
+}
+
 -------------------
 Шарики
 --------------------
