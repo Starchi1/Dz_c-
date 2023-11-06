@@ -682,7 +682,7 @@ int count_underscores(string s) {
 }
 int main()
 {
-    cout << "№21" << endl;
+    cout << "№6" << endl;
     int nu = 0;
     
     ofstream fout("zadacha.txt");
