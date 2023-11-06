@@ -586,6 +586,34 @@ int main()
     }
     
 }
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Решето Эратосфена" << endl;
+	int n, j, m = 2;
+	cout << "Введите число, до которого требуется найти все простые числа = "; cin >> n;
+	int* a = new int[n];
+	for (int i = 0; i < n; i++) {
+		a[i] = i;
+	}
+	while (m < n) {
+		if (a[m] != 0) {
+			j = m * 2;
+			cout << a[m] << " ";
+			while (j < n) {
+				a[j] = 0;
+				j = j + m;
+			}
+			++m;
+		}
+		++m;
+	}
+	delete a;
+	cout << " " << endl;
+}
 #include <algorithm>
 #include <iostream>
 #include <fstream>
@@ -770,4 +798,45 @@ int main() {
     }
     cout << cnt << endl;
     delete[] urna;
+}
+#include <iostream>
+#include <cmath>
+using namespace std;
+int perevodv10(int n) {
+    int num10 = 0, i = 0, cnt;
+    while (n != 0) {
+        cnt = n % 10;
+        n /= 10;
+        num10 += cnt * pow(2, i);
+        ++i;
+    }
+    return num10;
+}
+int perevodv3(int num){
+    int bin = 0, k = 1;
+    while (num){
+        bin += (num % 3) * k;
+        k *= 10;
+        num /= 3;
+    }
+    return bin;
+}
+int main()
+{
+
+    cout << "№4-21" << endl;
+    int nu;
+    cin >> nu;
+    int ch;
+    size_t n = nu;
+    int *dinamich_array = new int [n];
+    for (int i = 0; i < n; i++) {
+        cin >> ch;
+        dinamich_array[i] = ch;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << perevodv3(perevodv10(dinamich_array[i]));
+    }
+    delete [] dinamich_array;
+
 }
