@@ -557,6 +557,73 @@ int main()
 	cout << "Ответ на вопрос №5: " << c[0][0] + c[1][0] + c[2][0] + c[0][1] + c[1][1] + c[2][1] << endl;
 	cout << "" << endl;
 }
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <cmath>
+#include <clocale>
+#include <fstream>
+#include <algorithm>
+#include <string>
+#include <ostream>
+#include <map>
+#include <cstring>
+#include <sstream>
+using namespace std;
+int charToInt(char c) {
+    if (c >= '0' && c <= '9') {
+        return c - '0';
+    }
+    if (c >= 'A' && c <= 'F') {
+        return c - 'A' + 10;
+    }
+    return -1;
+}
+
+char intToChar(int num) {
+    if (num >= 0 && num <= 9) {
+        return '0' + num;
+    }
+    if (num >= 10 && num <= 15) {
+        return 'A' + num - 10;
+    }
+    return ' ';
+}
+string convertBase(const string& number, int fromBase, int toBase) {
+    int decimal = 0;
+    int power = 0;
+
+    for (int i = number.length() - 1; i >= 0; --i) {
+        int digit = charToInt(number[i]);
+        if (digit < 0 || digit >= fromBase) {
+            return "Ошибка";
+        }
+        decimal += digit * pow(fromBase, power);
+        power = power + 1;
+    }
+
+    string result;
+    while (decimal != 0) {
+        result = intToChar(decimal % toBase) + result;
+        decimal /= toBase;
+    }
+
+    if (result.empty()) {
+        return "0";
+    }
+    return result;
+}
+
+int main() {
+    cout << "Задача Системы счисления" << endl;
+    string number;
+    int fromBase, toBase;
+    cout << "Введите число: "; cin >> number;
+    cout << "Введите основание системы счисления, из которой нужно перевести: "; cin >> fromBase;
+    cout << "Введите основание системы счисления, в которую нужно перевести: ";    cin >> toBase;
+    string converted = convertBase(number, fromBase, toBase);
+    cout << "Результат: " << converted << endl;
+}
+
 --------------------------------------------------------------
 	5
 --------------------------------------------------------------
