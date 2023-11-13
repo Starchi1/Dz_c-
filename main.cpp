@@ -949,4 +949,22 @@ int main() {
     cout << cnt << endl;
     delete[] urna;
 }
+--------------------------
+Спинеры
+============================
+#include <iostream>
+using namespace std;
 
+int main () {
+	int a,b,c;
+	cout << "a: ";
+	cin >> a;
+	cout << "b: ";
+	cin >> b;	
+	cout << "c: ";
+	cin >> c;
+	int n = (c - a) / b;
+	cout << "n = " << n << endl;
+	cout << "---------------------------------\n";
+	main();
+}
