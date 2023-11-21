@@ -965,8 +965,7 @@ int main () {
 	cin >> c;
 	int n = (c - a) / b;
 	cout << "n = " << n << endl;
-	cout << "---------------------------------\n";
-	main();
+
 }
 #include <iostream>
 using namespace std;
@@ -984,8 +983,7 @@ int main () {
 	else {
 		cout << "Error!";
 	}
-	cout << "---------------------------------------\n";
-	main();
+
 }
 #include <iostream>
 using namespace std;
@@ -1006,8 +1004,7 @@ int main () {
 		}
 	}
 	cout << result << endl;
-	cout << "--------------------------------------------\n";
-	main();
+
 }
 #include <iostream>
 using namespace std;
@@ -1024,6 +1021,5 @@ int main () {
 	}
 	cout << (N - 1) / 2 << endl;
 	cout << N / 2 << endl;
-	cout << "------------------------------\n";
-	main();
+
 }
