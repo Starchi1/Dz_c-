@@ -968,3 +968,62 @@ int main () {
 	cout << "---------------------------------\n";
 	main();
 }
+#include <iostream>
+using namespace std;
+
+int main () {
+	int m;
+	cout << "m: ";
+	cin >> m;
+	int blades4 = m % 3;
+	int blades3 = (m - 4 * blades4) / 3;
+	if (blades3 >= 0) {
+		cout << blades3 << endl;
+		cout << blades4 << endl;
+	}
+	else {
+		cout << "Error!";
+	}
+	cout << "---------------------------------------\n";
+	main();
+}
+#include <iostream>
+using namespace std;
+
+int main () {
+	int x, y, result;
+	cout << "x: ";
+	cin >> x;
+	cout << "y: ";
+	cin >> y;
+	for (int i = 0; i < x; i++) {
+		for (int j = i; j < x; j++) {
+			for (int i = 0; i < y; i++) {
+				for (int j = i; j < y; j++) {
+					result++;
+				}
+			}
+		}
+	}
+	cout << result << endl;
+	cout << "--------------------------------------------\n";
+	main();
+}
+#include <iostream>
+using namespace std;
+
+int main () {
+	int N, K;
+	cout << "N: ";
+	cin >> N;
+	cout << "K: ";
+	cin >> K;
+	while (K != 1) {
+		N = (N - K % 2) / 2;
+		K = K / 2;
+	}
+	cout << (N - 1) / 2 << endl;
+	cout << N / 2 << endl;
+	cout << "------------------------------\n";
+	main();
+}
