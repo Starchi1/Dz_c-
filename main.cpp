@@ -1023,3 +1023,51 @@ int main () {
 	cout << N / 2 << endl;
 
 }
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+#include <algorithm>
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{   
+    set<string> sortedItems;
+    int k=0;
+    string chislo;
+    string familiy;
+    setlocale(LC_ALL, "Russian");
+    cout << "№6" << endl;
+    ofstream fout("phone.txt");
+    fout << "Романов 890354561 ";
+    fout << "Гей 8741651561 ";
+    fout.close();
+    ifstream in("phone.txt");
+    string line;
+    getline(in, line);
+    for (int i = 0; i <= line.length(); i++) {
+        if (line[i] != ' ')
+        {
+            if(k == 0){
+            familiy += line[i];
+            }
+            if(k == 1){
+            chislo += line[i];
+            }
+        }
+        else{
+            if(k == 0){
+                k+=1;
+            }
+            else{
+                k-=1;
+            }
+        }
+        sortedItems.insert(name);
+    }
+    in.close();
+
+}
