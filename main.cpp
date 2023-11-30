@@ -1071,3 +1071,35 @@ int main()
     in.close();
 
 }
+#include <iostream>
+#include <clocale>
+#include <fstream>
+#include <string>
+using namespace std;
+int main() {
+	cout << "Number of words";
+	int Length;
+	cin >> Length;
+	string mas[Length];
+	for(int k = 0; k < Length; k++){
+	    string sl;
+	    cin >> sl;
+	    mas[k] =sl;
+	}
+	for (int i = 0; i < Length; i++)
+	{
+		for (int j = i + 1; j < Length; j++)
+		{
+			if (mas[i].length() > mas[j].length())
+			{
+				string temporary = mas[i];
+				mas[i] = mas[j];
+				mas[j] = temporary;
+			}
+		}
+	}
+	for(int k = 0; k < Length; k++){
+	    cout << mas[k] << endl;
+	}
+
+}
