@@ -1104,3 +1104,43 @@ int main() {
 	}
 
 }
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N, M;
+    cout<<"Rasmernoct masiva" << endl;
+    cout<< "N*M" << endl;
+    cin>> N;
+    cin>> M;
+    int mas[N][M];
+    for(int i=0; i < N; i++){
+        for(int j=0; j < M; j++){
+            int ch;
+            cin >> ch;
+            mas[i][j] = ch;
+        }
+    }
+    int k = -1;
+    for(int i=0; i < N; i++){
+        int sum=0;
+        k += 1;
+        cout<<k;
+        for(int j=0; j < M; j++){
+            if(j == k){
+                sum += mas[i][j];
+            }
+        }
+        cout<< sum << endl;
+    }
+    for(int i=0; i < N; i++){
+        for(int j=0; j < M; j++){
+            cout<< mas[i][j];
+            cout<<"("<<i<<","<<j<<")";
+        }
+        cout << endl;
+    }
+    return 0;
+}
