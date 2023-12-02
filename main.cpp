@@ -1123,24 +1123,12 @@ int main()
             mas[i][j] = ch;
         }
     }
-    int k = -1;
     for(int i=0; i < N; i++){
         int sum=0;
-        k += 1;
-        cout<<k;
         for(int j=0; j < M; j++){
-            if(j == k){
-                sum += mas[i][j];
-            }
+            sum += mas[j][i];
         }
         cout<< sum << endl;
-    }
-    for(int i=0; i < N; i++){
-        for(int j=0; j < M; j++){
-            cout<< mas[i][j];
-            cout<<"("<<i<<","<<j<<")";
-        }
-        cout << endl;
     }
     return 0;
 }
