@@ -1023,6 +1023,7 @@ int main () {
 	cout << N / 2 << endl;
 
 }
+----------------------------------------
 #include <algorithm>
 #include <iostream>
 #include <fstream>
